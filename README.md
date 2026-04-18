@@ -1,1 +1,0 @@
-# kanoeyuukoos.github.io
