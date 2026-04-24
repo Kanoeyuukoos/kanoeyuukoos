@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>ZIP Episode Mobile</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+
+<div class="container">
+<h2>ZIP Episode </h2>
+
+<div class="card">
+<input type="file" id="fileInput" multiple>
+
+<button onclick="addFiles()">Tambah File</button>
+<button onclick="copyAnimeName()">Salin Nama Anime</button>
+<button onclick="createZip()">Mulai Proses</button>
+</div>
+
+<div class="card">
+<ul id="fileList"></ul>
+</div>
+
+<div class="card progress-box">
+    <b>Total</b>
+    <progress id="progressBar" value="0" max="100"></progress>
+    <b>File</b>
+    <progress id="fileProgress" value="0" max="100"></progress>
+    <div class="status" id="statusText">Menunggu...</div>
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
