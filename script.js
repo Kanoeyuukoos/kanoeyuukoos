@@ -129,7 +129,7 @@ async function createZip() {
 
     progressBar.value = 100;
     fileProgress.value = 100;
-    statusText.textContent = "Selesai semua! ";
+    statusText.textContent = "Selesai semua!🥳 🤭 ✌️";
 
     //  Reset setelah selesai
     setTimeout(() => {
@@ -138,7 +138,7 @@ async function createZip() {
         document.getElementById("fileList").innerHTML = "";
         progressBar.value = 0;
         fileProgress.value = 0;
-        statusText.textContent = "Menunggu...";
+        statusText.textContent = "🙄 🙄 🙄 Menunggu...";
     }, 1500);
 }
 
