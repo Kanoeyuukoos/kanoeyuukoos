@@ -62,7 +62,7 @@ async function createZip() {
     fileProgress.value = 0;
 
     //  Ambil nama anime
-    let animeTitle = getAnimeTitle(allFiles[0].name) || "Anime";
+    let animeTitle = sanitizeName(getAnimeTitle(allFiles[0].name) || "Anime");
 
     let useFolder = !!window.showDirectoryPicker;
     let rootDir = null;
@@ -72,7 +72,7 @@ async function createZip() {
             rootDir = await window.showDirectoryPicker();
 
             //  Buat folder anime
-            rootDir = await rootDir.getDirectoryHandle(animeTitle, { create: true });
+            const safeFolder = sanitizeName(animeTitle);rootDir = await rootDir.getDirectoryHandle(safeFolder, { create: true });
 
             statusText.textContent = "Mode: Folder (PC)";
         } catch {
@@ -144,6 +144,13 @@ async function createZip() {
 
 function delay(ms) {
     return new Promise(res => setTimeout(res, ms));
+}
+
+function sanitizeName(name) {
+    return name
+        .replace(/[<>:"/\\|?*]/g, "_")
+        .replace(/\s+/g, " ")
+        .trim();
 }
 
 	/*====Buat apk ======*/
